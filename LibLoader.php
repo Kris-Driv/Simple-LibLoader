@@ -26,14 +26,16 @@ class LibLoader extends \BaseClassLoader {
 	 * @param string $file
 	 * @throws \Exception
 	 */
-	public function loadLib(string $file) {
+	public static function loadLib(string $file, $loader = null) {
+		global $autoloader;
+		$loader = $loader ?? $autoloader;
 		if(($f = realpath($file)) !== false) {
 			if(is_file($file) && strpos($file, ".phar") !== false) {
 				// Load a phar file
-				$this->addPath("phar://$file/");
+				$loader->addPath("phar://$file/");
 			} else {
 				// Load a directory
-				$this->addPath("$file/src");
+				$loader->addPath("$file/src");
 			}
 		} else {
 			throw new \Exception("file '$file' not found");
