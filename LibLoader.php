@@ -29,6 +29,9 @@ class LibLoader extends \BaseClassLoader {
 	public static function loadLib(string $file, $loader = null) {
 		global $autoloader;
 		$loader = $loader ?? $autoloader;
+		if(!empty(($fs = glob($file)))) {
+			$file = $fs[0];
+		}
 		if(($f = realpath($file)) !== false) {
 			if(is_file($file) && strpos($file, ".phar") !== false) {
 				// Load a phar file
