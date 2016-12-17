@@ -26,10 +26,10 @@ class LibLoader extends \BaseClassLoader {
 	 * @param string $file
 	 * @throws \Exception
 	 */
-	public static function loadLib(string $file, $loader = null) {
+	public static function loadLib(string $src, string $file, $loader = null) {
 		global $autoloader;
 		$loader = $loader ?? $autoloader;
-		if(!empty(($fs = glob($file)))) {
+		if(!empty(($fs = glob($src."lib/".$file)))) {
 			$file = $fs[0];
 		}
 		if(($f = realpath($file)) !== false) {
