@@ -20,7 +20,7 @@ use somelib\Bar;
 #...
 
 public function function onEnable() {
-  LibLoader::loadLib($this->getFile() . "lib/somelib.phar");
+  LibLoader::loadLib($this->getFile(), "Somelib");
   
   $foo = new Bar();
 }
