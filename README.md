@@ -10,7 +10,7 @@ git submodule add https://github.com/Chris-Prime/Simple-LibLoader.git sll
 ```
 
 ###Using
-Make new folder inside plugin and name it however you want. I preffer 'lib'. Inside it put your library .phar file or just directory containing valid library.
+Make new folder inside plugin and name it 'lib'. Inside it put your libraries, it can be either .phar file or just directory containing valid library.
 
 Example of usage:
 ```php
